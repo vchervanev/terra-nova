@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SplashController : MonoBehaviour
 {
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
+
     void Start()
     {
         Invoke("StartGame", 2f);
