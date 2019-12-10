@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float yDelta = 40f;
     [SerializeField] float rxCorrection = 20f;
     [SerializeField] float ryCorrection = 20f;
+    [SerializeField] float rxThrowCorrection = 20f;
+    [SerializeField] float ryThrowCorrection = 20f;
 
     void Update()
     {
@@ -25,9 +27,10 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(newPosition.y, -yDelta, yDelta),
             newPosition.z
         );
-
-        var xr = rxCorrection * transform.localPosition.y / yDelta;
-        var yr = ryCorrection * transform.localPosition.x / xDelta;
+        var kx = transform.localPosition.y / yDelta;
+        var ky = transform.localPosition.x / xDelta;
+        var xr = rxCorrection * kx - ryThrowCorrection * yMove * (1 - Mathf.Abs(kx));
+        var yr = ryCorrection * ky + rxThrowCorrection * xMove * (1 - Mathf.Abs(ky));
         transform.localRotation = Quaternion.Euler(xr, yr, 0);
         print(ryCorrection * transform.localPosition.y / yDelta);
     }

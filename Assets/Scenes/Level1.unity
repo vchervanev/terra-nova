@@ -178,8 +178,10 @@ MonoBehaviour:
   xDelta: 28
   ySpeed: 50
   yDelta: 18
-  rxCorrection: 20
+  rxCorrection: 10
   ryCorrection: 20
+  rxThrowCorrection: 20
+  ryThrowCorrection: 20
 --- !u!1 &476471467
 GameObject:
   m_ObjectHideFlags: 0
