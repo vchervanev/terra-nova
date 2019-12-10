@@ -9,14 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float xDelta = 40f;
     [SerializeField] float ySpeed = 40f;
     [SerializeField] float yDelta = 40f;
+    [SerializeField] float rxCorrection = 20f;
+    [SerializeField] float ryCorrection = 20f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float xMove = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -24,10 +19,16 @@ public class PlayerController : MonoBehaviour
         float yMove = CrossPlatformInputManager.GetAxis("Vertical");
         float dy = yMove * ySpeed * Time.deltaTime;
         Vector3 newPosition = transform.localPosition + new Vector3(dx, dy, 0);
+
         transform.localPosition = new Vector3(
             Mathf.Clamp(newPosition.x, -xDelta, xDelta),
             Mathf.Clamp(newPosition.y, -yDelta, yDelta),
             newPosition.z
         );
+
+        var xr = rxCorrection * transform.localPosition.y / yDelta;
+        var yr = ryCorrection * transform.localPosition.x / xDelta;
+        transform.localRotation = Quaternion.Euler(xr, yr, 0);
+        print(ryCorrection * transform.localPosition.y / yDelta);
     }
 }
