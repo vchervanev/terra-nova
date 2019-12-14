@@ -37,12 +37,10 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         print("Collision");
-        print(collision.rigidbody.name);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         print("trigger");
-        print(other.name);
     }
 }
