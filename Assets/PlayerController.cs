@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,5 +11,11 @@ public class PlayerController : MonoBehaviour
     {
         explosionParticles.SetActive(true);
         SendMessage("InitiateFailure");
+        Invoke("Restart", 1.5f);
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(1);
     }
 }
