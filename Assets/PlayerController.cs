@@ -32,6 +32,17 @@ public class PlayerController : MonoBehaviour
         var xr = rxCorrection * kx - ryThrowCorrection * yMove * (1 - Mathf.Abs(kx));
         var yr = ryCorrection * ky + rxThrowCorrection * xMove * (1 - Mathf.Abs(ky));
         transform.localRotation = Quaternion.Euler(xr, yr, 0);
-        print(ryCorrection * transform.localPosition.y / yDelta);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Collision");
+        print(collision.rigidbody.name);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("trigger");
+        print(other.name);
     }
 }
