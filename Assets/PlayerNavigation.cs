@@ -14,9 +14,16 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] float rxThrowCorrection = 20f;
     [SerializeField] float ryThrowCorrection = 20f;
     private bool failed;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void InitiateFailure()
     {
+        rb.isKinematic = false;
         failed = true;
     }
     void Update()
