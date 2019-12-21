@@ -21,4 +21,9 @@ public class ScoreBoard : MonoBehaviour
         score += Mathf.RoundToInt(Time.smoothDeltaTime * 50);
         textComponent.text = score.ToString();
     }
+
+    public void OnHit()
+    {
+        score += 1000;
+    }
 }

@@ -1823,6 +1823,8 @@ MonoBehaviour:
   ryCorrection: 20
   rxThrowCorrection: 20
   ryThrowCorrection: 20
+  guns:
+  - {fileID: 537138906}
 --- !u!1 &476471467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,7 +2107,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537138906}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -2180,7 +2182,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2233,7 +2235,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 2500
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2349,7 +2351,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2

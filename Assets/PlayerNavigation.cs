@@ -13,6 +13,8 @@ public class PlayerNavigation : MonoBehaviour
     [SerializeField] float ryCorrection = 20f;
     [SerializeField] float rxThrowCorrection = 20f;
     [SerializeField] float ryThrowCorrection = 20f;
+    [SerializeField] GameObject[] guns;
+
     private bool failed;
     private Rigidbody rb;
 
@@ -48,5 +50,11 @@ public class PlayerNavigation : MonoBehaviour
         var xr = rxCorrection * kx - ryThrowCorrection * yMove * (1 - Mathf.Abs(kx));
         var yr = ryCorrection * ky + rxThrowCorrection * xMove * (1 - Mathf.Abs(ky));
         transform.localRotation = Quaternion.Euler(xr, yr, 0);
+
+        var active = CrossPlatformInputManager.GetButton("Fire1");
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(active);
+        }
     }
 }
