@@ -54,7 +54,7 @@ public class PlayerNavigation : MonoBehaviour
         var active = CrossPlatformInputManager.GetButton("Fire1");
         foreach(GameObject gun in guns)
         {
-            gun.SetActive(active);
+            gun.GetComponent<ParticleSystem>().enableEmission = active;
         }
     }
 }
